@@ -1,0 +1,39 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-newsapp-dev-145352-authRole",
+      "UnauthRoleArn": "arn:aws:iam::838487617183:role/amplify-newsapp-dev-145352-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::838487617183:role/amplify-newsapp-dev-145352-authRole",
+      "Region": "ap-south-1",
+      "DeploymentBucketName": "amplify-newsapp-dev-145352-deployment",
+      "UnauthRoleName": "amplify-newsapp-dev-145352-unauthRole",
+      "StackName": "amplify-newsapp-dev-145352",
+      "StackId": "arn:aws:cloudformation:ap-south-1:838487617183:stack/amplify-newsapp-dev-145352/dc450080-e89a-11ec-ad08-06826119314c",
+      "AmplifyAppId": "d2a71oslagyz10",
+      "AuthTriggerTemplateURL": "https://s3.amazonaws.com/amplify-newsapp-dev-145352-deployment/amplify-cfn-templates/auth/auth-trigger-cloudformation-template.json"
+    },
+    "categories": {
+      "auth": {
+        "newsapp": {}
+      },
+      "function": {
+        "newsappCreateAuthChallenge": {
+          "deploymentBucketName": "amplify-newsapp-dev-145352-deployment",
+          "s3Key": "amplify-builds/newsappCreateAuthChallenge-4274304f6e765449626d-build.zip"
+        },
+        "newsappDefineAuthChallenge": {
+          "deploymentBucketName": "amplify-newsapp-dev-145352-deployment",
+          "s3Key": "amplify-builds/newsappDefineAuthChallenge-4b694765505752346c65-build.zip"
+        },
+        "newsappPreSignup": {
+          "deploymentBucketName": "amplify-newsapp-dev-145352-deployment",
+          "s3Key": "amplify-builds/newsappPreSignup-72686d6743716263526c-build.zip"
+        },
+        "newsappVerifyAuthChallengeResponse": {
+          "deploymentBucketName": "amplify-newsapp-dev-145352-deployment",
+          "s3Key": "amplify-builds/newsappVerifyAuthChallengeResponse-4e356143426552526648-build.zip"
+        }
+      }
+    }
+  }
+}
