@@ -16,6 +16,10 @@ class HomeViewModel extends ReactiveViewModel {
     fetchUser();
     getNewsSteam();
   }
+
+  TextEditingController titleC = TextEditingController();
+  TextEditingController contentC = TextEditingController();
+
   final AuthServices _authServices = locator<AuthServices>();
 
   UserModel? get user => _authServices.user.value;
@@ -33,6 +37,48 @@ class HomeViewModel extends ReactiveViewModel {
       debugPrint(event.items.toString());
       notifyListeners();
     });
+  }
+
+  addNews() async {
+    await showDialog(
+      context: navigatorKey.currentContext!,
+      builder: (_) => SimpleDialog(
+        contentPadding: const EdgeInsets.all(20),
+        children: [
+          const Text('Add a news'),
+          const SizedBox(height: 20),
+          TextField(
+            controller: titleC,
+            decoration: const InputDecoration(hintText: 'Title'),
+          ),
+          const SizedBox(height: 10),
+          TextField(
+            controller: contentC,
+            maxLines: 3,
+            decoration: const InputDecoration(hintText: 'Content'),
+          ),
+          const SizedBox(height: 30),
+          OutlinedButton(
+              onPressed: () async {
+                if (titleC.text.isNotEmpty && contentC.text.isNotEmpty) {
+                  navigatorKey.currentState!.pop();
+                  final n = News(
+                    content: contentC.text,
+                    title: titleC.text,
+                  );
+                  await Amplify.DataStore.save(n);
+                  contentC.clear();
+                  titleC.clear();
+                }
+              },
+              child: const Text('Add')),
+        ],
+      ),
+    );
+  }
+
+  deleteNews(News news) async {
+    await Amplify.DataStore.delete(news);
   }
 
   onTapNews(News news) async {

@@ -14,7 +14,7 @@ class AuthServices with ReactiveServiceMixin {
 
   // ignore: non_constant_identifier_names
   AuthService() {
-    listenToReactiveValues([]);
+    listenToReactiveValues([user]);
   }
 
   Future getUserData() async {
@@ -48,7 +48,7 @@ class AuthServices with ReactiveServiceMixin {
 
   Future<void> logout() async {
     Amplify.Auth.signOut();
-    //await Amplify.DataStore.clear();
+    await Amplify.DataStore.clear();
     navigatorKey.currentState!
         .pushNamedAndRemoveUntil(Routes.loginView, (route) => false);
   }

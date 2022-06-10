@@ -30,6 +30,10 @@ class _HomeViewState extends State<HomeView> {
               ),
             ],
           ),
+          floatingActionButton: FloatingActionButton(
+            onPressed: model.addNews,
+            child: const Icon(Icons.add),
+          ),
           body: Column(
             children: [
               Expanded(
@@ -45,6 +49,10 @@ class _HomeViewState extends State<HomeView> {
                             ? CircleAvatar(
                                 foregroundImage: NetworkImage(news.image!))
                             : null,
+                        trailing: IconButton(
+                          icon: const Icon(Icons.delete),
+                          onPressed: () => model.deleteNews(news),
+                        ),
                       ),
                     );
                   },

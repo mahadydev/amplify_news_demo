@@ -1,8 +1,6 @@
 import 'package:amplify_auth_cognito/amplify_auth_cognito.dart';
 import 'package:amplify_flutter/amplify_flutter.dart';
-import 'package:amplify_news/app/locator/locator.dart';
 import 'package:amplify_news/app/router/router.dart';
-import 'package:amplify_news/services/auth/auth_services.dart';
 import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:flutter/material.dart';
 import 'package:intl_phone_field/countries.dart';
@@ -14,8 +12,6 @@ import '../../../main.dart';
 
 class LoginViewModel extends BaseViewModel {
   TextEditingController phoneController = TextEditingController();
-
-  final AuthServices _authServices = locator<AuthServices>();
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   GlobalKey<FormState> get formKey => _formKey;
