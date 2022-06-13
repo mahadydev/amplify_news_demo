@@ -105,7 +105,19 @@
               "userPoolId": "authnewsapp"
             }
           },
-          "additionalAuthenticationProviders": []
+          "additionalAuthenticationProviders": [
+            {
+              "authenticationType": "AWS_IAM"
+            },
+            {
+              "authenticationType": "API_KEY",
+              "apiKeyConfig": {
+                "apiKeyExpirationDays": 365,
+                "apiKeyExpirationDate": "2023-06-13T04:28:39.832Z",
+                "description": "amplifynews"
+              }
+            }
+          ]
         }
       }
     }
