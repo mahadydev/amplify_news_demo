@@ -39,4 +39,8 @@ class OtpVerifyViewModel extends BaseViewModel {
       }
     }
   }
+
+  onClose() {
+    otpController.dispose();
+  }
 }

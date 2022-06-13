@@ -1,4 +1,5 @@
-import 'package:amplify_datastore/amplify_datastore.dart';
+import 'dart:async';
+
 import 'package:amplify_flutter/amplify_flutter.dart';
 import 'package:amplify_news/models/News.dart';
 import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
@@ -12,10 +13,7 @@ import '../../../main.dart';
 import '../../../services/auth/auth_services.dart';
 
 class HomeViewModel extends ReactiveViewModel {
-  HomeViewModel() {
-    fetchUser();
-    getNewsSteam();
-  }
+  StreamSubscription? newsStream;
 
   TextEditingController titleC = TextEditingController();
   TextEditingController contentC = TextEditingController();
@@ -25,14 +23,23 @@ class HomeViewModel extends ReactiveViewModel {
   UserModel? get user => _authServices.user.value;
   List<News> newsList = [];
 
+  init() {
+    fetchUser();
+    getNewsSteam();
+  }
+
+  onClose() {
+    titleC.dispose();
+    contentC.dispose();
+  }
+
   signOut() => _authServices.logout();
 
   fetchUser() => _authServices.getUserData();
 
   getNewsSteam() async {
-    Stream<QuerySnapshot<News>> stream =
-        Amplify.DataStore.observeQuery(News.classType);
-    stream.listen((event) {
+    await Amplify.DataStore.start();
+    newsStream = Amplify.DataStore.observeQuery(News.classType).listen((event) {
       newsList = event.items;
       debugPrint(event.items.toString());
       notifyListeners();

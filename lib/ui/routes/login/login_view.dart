@@ -15,6 +15,7 @@ class LoginView extends StatelessWidget {
   Widget build(BuildContext context) {
     return ViewModelBuilder<LoginViewModel>.reactive(
       viewModelBuilder: () => LoginViewModel(),
+      onDispose: (model) => model.onClose(),
       builder: (
         BuildContext context,
         LoginViewModel model,

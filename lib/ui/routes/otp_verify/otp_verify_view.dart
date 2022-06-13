@@ -12,6 +12,7 @@ class OtpVerifyView extends StatelessWidget {
   Widget build(BuildContext context) {
     return ViewModelBuilder<OtpVerifyViewModel>.nonReactive(
       viewModelBuilder: () => OtpVerifyViewModel(),
+      onDispose: (model) => model.onClose(),
       builder: (
         BuildContext context,
         OtpVerifyViewModel model,

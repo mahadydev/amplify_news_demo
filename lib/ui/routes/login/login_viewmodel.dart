@@ -89,11 +89,9 @@ class LoginViewModel extends BaseViewModel {
     }
   }
 
-  @override
-  void dispose() {
+  onClose() {
     debugPrint('Loginviewmodel disposed');
     phoneController.dispose();
     loginFocus.dispose();
-    super.dispose();
   }
 }
