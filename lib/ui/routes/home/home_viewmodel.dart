@@ -66,26 +66,35 @@ class HomeViewModel extends ReactiveViewModel {
           ),
           const SizedBox(height: 30),
           OutlinedButton(
-              onPressed: () async {
-                if (titleC.text.isNotEmpty && contentC.text.isNotEmpty) {
-                  navigatorKey.currentState!.pop();
-                  final n = News(
-                    content: contentC.text,
-                    title: titleC.text,
-                  );
+            onPressed: () async {
+              if (titleC.text.isNotEmpty && contentC.text.isNotEmpty) {
+                navigatorKey.currentState!.pop();
+                final n = News(
+                  content: contentC.text,
+                  title: titleC.text,
+                );
+                try {
                   await Amplify.DataStore.save(n);
-                  contentC.clear();
-                  titleC.clear();
+                } catch (e) {
+                  debugPrint(e.toString());
                 }
-              },
-              child: const Text('Add')),
+                contentC.clear();
+                titleC.clear();
+              }
+            },
+            child: const Text('Add'),
+          ),
         ],
       ),
     );
   }
 
   deleteNews(News news) async {
-    await Amplify.DataStore.delete(news);
+    try {
+      await Amplify.DataStore.delete(news);
+    } catch (e) {
+      debugPrint(e.toString());
+    }
   }
 
   onTapNews(News news) async {

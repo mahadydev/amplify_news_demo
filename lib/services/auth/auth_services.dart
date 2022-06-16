@@ -47,7 +47,7 @@ class AuthServices with ReactiveServiceMixin {
   }
 
   Future<void> logout() async {
-    Amplify.Auth.signOut();
+    await Amplify.Auth.signOut();
     await Amplify.DataStore.clear();
     navigatorKey.currentState!
         .pushNamedAndRemoveUntil(Routes.loginView, (route) => false);

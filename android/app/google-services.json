@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "783422342191",
+    "project_id": "amplify-news-test",
+    "storage_bucket": "amplify-news-test.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:783422342191:android:40a08b04079d5d0cfd32da",
+        "android_client_info": {
+          "package_name": "com.example.amplify_news"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "783422342191-ecdtj30gve04thljrfl6peuudgl4pk4g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBxoQungOf5yQM_y-ONeWvbnSrkJnCAGZQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "783422342191-ecdtj30gve04thljrfl6peuudgl4pk4g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

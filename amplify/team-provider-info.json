@@ -32,6 +32,10 @@
         "newsappVerifyAuthChallengeResponse": {
           "deploymentBucketName": "amplify-newsapp-dev-145352-deployment",
           "s3Key": "amplify-builds/newsappVerifyAuthChallengeResponse-4e356143426552526648-build.zip"
+        },
+        "newsappTriggerFCM": {
+          "deploymentBucketName": "amplify-newsapp-dev-145352-deployment",
+          "s3Key": "amplify-builds/newsappTriggerFCM-6f30724a59332f656947-build.zip"
         }
       }
     }
